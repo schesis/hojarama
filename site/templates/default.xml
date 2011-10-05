@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:hr="urn:hojarama:template">
+  <head>
+    <title><hr:title/></title>
+  </head>
+  <body>
+    <hr:lang_menu/>
+    <h1><hr:title/></h1>
+    <hr:content/>
+  </body>
+</template>

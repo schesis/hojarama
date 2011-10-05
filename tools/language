@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# tools/language
+# Copyright (c) 2007 Zero Piraeus <z@hojarama.org>
+#
+# This file is part of Hojarama [release 0.08.01].
+#
+# Hojarama is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 3 of the License, or (at your option)
+# any later version.
+#
+# Hojarama is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <http://www.gnu.org/licenses/>.
+
+"""Manage the site languages."""
+
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(sys.path[0], os.pardir, "hr")))
+
+from hrtools import run_parser
+
+from Languages import Languages
+
+META = ({"name": "ID",
+         "help": "ISO-639-1 language identifier",
+         "example": "it"},
+
+        {"name": "DESC",
+         "help": "Language description",
+         "example": "English"},
+
+        {"name": "LANG",
+         "help": "ID:DESC",
+         "example": "de:Deutsch"},
+
+        {"name": "ORD",
+         "help": "Comma-separated list of IDs",
+         "example": "ko,zh,ja"})
+
+SPEC = (("a", "add", "LANG", "add language ID with name DESC"),
+        ("d", "default", "ID", "set ID as default language"),
+        ("k", "kill", "ID", "permanently delete language ID"),
+        ("l", "list", None, "list all languages"),
+        ("n", "name", "LANG", "rename language ID to DESC"),
+        ("o", "order", "ORD", "reorder languages to ORD"),
+        ("u", "unhide", "ID", "mark language ID as not hidden"),
+        ("x", "hide", "ID", "mark language ID as hidden"))
+
+
+if __name__ == "__main__":
+    run_parser("language", Languages(), SPEC, META, confirm="k")
+

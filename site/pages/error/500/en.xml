@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page cache="no" robots="noindex" title="Internal server error">
+
+  <p>Ouch! That shouldn't happen ...</p>
+
+  <p>There seems to be a problem with our site's server - please <a
+      href="mailto:webmaster@localhost?subject=500%20error">get in
+      touch</a>, and we'll look into it.</p>
+
+</page>

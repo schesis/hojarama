@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# hr/serve
+# Copyright (c) 2007 Zero Piraeus <z@hojarama.org>
+#
+# This file is part of Hojarama [release 0.08.01].
+#
+# Hojarama is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 3 of the License, or (at your option)
+# any later version.
+#
+# Hojarama is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <http://www.gnu.org/licenses/>.
+
+"""Serve a page."""
+
+import os
+import sys
+
+from hojarama import log, Node
+
+from Languages import Languages
+from Page import Page
+
+HTML = "text/html"
+XHTML = "application/xhtml+xml"
+
+
+def command_line():
+    """Extract and return ``node`` and ``lang_id`` from the command line."""
+    if len(sys.argv) != 2:
+        log.critical("exactly one argument required")
+        log.error("... command line was: %s" % " ".join(sys.argv))
+        sys.exit(2)
+    request_node, request_lang = sys.argv[1].rsplit("/", 1)
+    node = Node(request_node.lstrip("/"))
+    languages = Languages()
+    if request_lang in languages.visible:
+        lang_id = request_lang
+    else:
+        lang_id = languages.http_pref()
+    return (node, lang_id)
+
+
+def main():
+    """Serve the page."""
+    node, lang_id = command_line()
+    page = Page(node, lang_id)
+    http_accept = [a.split(";")[0].strip()
+                   for a in str(os.getenv("HTTP_ACCEPT")).split(",")]
+    content_type = XHTML if (XHTML in http_accept) else HTML
+    status = page.content.status()
+    print "Status: " + status
+    print "Content-type: %s; charset=utf-8" % content_type
+    print
+    print page.xhtml().encode("utf-8")
+    log.info("%s: %s" % (status, sys.argv[1]))
+    log.debug("User: %1.2fs; System: %1.2fs" % os.times()[:2])
+
+
+if __name__ == "__main__":
+    main()
+

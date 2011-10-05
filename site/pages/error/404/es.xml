@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page cache="no" robots="noindex" title="Página no encontrada">
+
+  <p>No existe una página a la dirección que solicité. Tal vez ha seguido un
+    listado del buscador pasado de moda, o un vinculo roto ... o
+    posiblemente hizo un error de tipear.</p>
+
+  <p>Si piensa que es un problema propio del sitio, por favor <a
+      href="mailto:webmaster@localhost?subject=404%20error">contactarnos</a>,
+    y lo investigaremos.</p>
+
+</page>

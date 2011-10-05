@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page cache="no" robots="noindex" title="Prohibido">
+
+  <p>No tiene permisión a ver esta página.</p>
+
+  <p>Si piensa que esto es un problema propio del sitio, por favor <a
+      href="mailto:webmaster@localhost?subject=403%20error">contactarnos</a>,
+    y lo investigaremos.</p>
+
+</page>

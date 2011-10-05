@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<languages default="en">
+  <language name="English" id="en"/>
+  <language name="Español" id="es"/>
+</languages>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page cache="no" robots="noindex" title="Page not found">
+
+  <p>The page you asked for doesn't exist. Perhaps you followed an
+    out-of-date search engine listing or a broken link ... or possibly made
+    a typing error.</p>
+
+  <p>If you think it's a problem with the site itself, please <a
+      href="mailto:webmaster@localhost?subject=404%20error">get in
+      touch</a>, and we'll look into it.</p>
+
+</page>

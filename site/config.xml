@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<config>
+  <option id="debug_hrx" value="no"/>
+  <option id="domain" value="localhost"/>
+  <option id="keep_empty" value="area,br,col,hr,img,input,param,td,th"/>
+  <option id="log" value="info"/>
+  <option id="name" value="default"/>
+  <option id="nav_class" value="global_nav"/>
+</config>
